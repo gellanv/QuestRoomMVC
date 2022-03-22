@@ -1,0 +1,167 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+.rooms a {
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    text-shadow: 0 0 30px #000, 0 0 30px #000, 0 0 30px #000, 0 0 30px #000, 0 0 30px #000, 0 0 30px #000, 0 0 30px #000;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-color: #1a1a1a;
+    color: white;
+}
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+.rooms {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+}
+
+.rooms div {
+        width: 22%;
+        height: 350px;
+        background-size: 100%;
+        margin-bottom: 10px;
+        padding: 25px;
+        border: 1px solid #fff;
+    }
+
+.navbar {
+    background-color: #ada9a9 !important;
+}
+
+.oneroom {
+    background-image: url(/img/plashka.jpg);
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position-x: right;
+}
+
+select {
+    padding: 5px;
+    margin-right: 5px;
+}
+
+.orderbtn {
+    display: block;
+    color: red;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 1px 1px 10px 3px #f20000;
+}
+
+    .orderbtn:hover {
+        box-shadow: 1px 1px 25px 5px #f20000;
+        text-decoration: none;
+    }
+
+.table {
+    color: #ffffff !important;
+}
+
+.banner {
+    background-image: url("../img/banner.jpg");
+    height: 300px;
+}
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2') format('woff2'), url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff') format('woff'), url('https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/fonts/fontawesome-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal
+}
+
+.glyphicon {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.glyphicon-chevron-right:before {
+    content: "\f054";
+}
+
+.glyphicon-chevron-left:before {
+    content: "\f053";
+}

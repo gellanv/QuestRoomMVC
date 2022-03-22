@@ -1,0 +1,87 @@
+﻿@model IndexViewModel
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>КВЕСТЫ</h1>
+@if (User.IsInRole("admin"))
+{
+    <p>
+    <a asp-action="Create">Create New</a>
+</p>
+}
+<p>Подобрать Квест</p>
+<form method="get">     
+    <div class="form-group" style="float:left;"> 
+        <label>
+            Кол-во игроков: 
+            <select name="countpl">            
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>     
+        </label>          
+    </div>
+    <div class="form-group" style="float:left;">                           
+        <select name="diflevel" asp-items="@Html.GetEnumSelectList<DifficultLevel>()" ></select>           
+     </div>
+     <div class="form-group" style="float:left;">            
+        <select name="fearlevel" asp-items="@Html.GetEnumSelectList<FearLevel>()" ></select>       
+    </div>
+     <div class="form-group">
+         <input type="submit" value="Подобрать" class="btn btn-primary" />
+         <input type="submit" name="throwoff" value="Сбросить" class="btn btn-primary" />
+     </div>
+</form>
+
+    <p class="form-group" style="float:left;">Сортировать все комнаты по: 
+     <a asp-action="Index" asp-route-sortOrder="count">Количеству игроков</a> 
+     <a asp-action="Index" asp-route-sortOrder="diff">Уровню сложности</a> 
+     </p>
+    
+     <div class="rooms">
+    @foreach (var item in Model.Rooms)
+    {   
+       <div style="background-image: url(@item.Image);">
+            <a asp-action="Details" asp-route-id="@item.Id">
+            <h3> @Html.DisplayFor(modelItem => item.Name)</h3>
+            <span>Игроков: @Html.DisplayFor(modelItem => item.CountPlayers)</span><br>
+            <span>@Html.DisplayFor(modelItem => item.DifficultLevel)</span>
+            <span>@Html.DisplayFor(modelItem => item.FearLevel)</span> 
+            </a>
+            <br>
+            <br>
+            <br>
+            @if (User.IsInRole("admin"))
+            {
+                <p>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |               
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
+            </p>
+            }                  
+      </div>
+    }   
+</div>
+ @if (Model.PageViewModel.HasPreviousPage)
+    {
+        <a asp-action="Index"
+           asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+              class="btn btn-warning">
+              <i class="glyphicon glyphicon-chevron-left"></i>
+              Назад
+        </a>
+    }
+    @if (Model.PageViewModel.HasNextPage)
+    {
+        <a asp-action="Index"
+           asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+           class="btn btn-warning">
+            Вперед
+            <i class="glyphicon glyphicon-chevron-right"></i>
+        </a>
+    }

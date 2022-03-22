@@ -1,0 +1,39 @@
+﻿@model QuestRoomMVC.Models.Order
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Order</h1>
+<h2>@ViewBag.NameRoom</h2>
+<hr /> 
+<div class="col-sm-12 oneroom" style="background-image: url(/@ViewBag.ImgRoom);" >
+   <div class="row">
+    <div class="col-md-4">
+        <form method="post"> 
+            <input type="hidden" value="@ViewBag.RoomId" name="roomId">            
+            <p>Выберите желаемую дату:</p>
+            <div class="form-group">               
+                <input asp-for="DateOrder" class="form-control" />
+                <span asp-validation-for="DateOrder" class="text-danger"></span>
+            </div>
+            <p>Выберите время:</p>  
+            <div class="form-group"> 
+                <select asp-for="TimeOrder" asp-items="@ViewBag.timeList"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Оформить заказ" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>   
+    <a href="@Url.Action("Index", "Rooms")">Back to List Rooms</a>
+</div>
+    
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
